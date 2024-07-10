@@ -7,8 +7,8 @@ namespace Infrastructure.Implementations
 {
     public class PasswordRecordRepository(ApplicationDbContext context) : IRepository<PasswordRecord>
     {
-        public async Task<List<PasswordRecord>> GetAllAsync() => 
-            await context.Passwords.ToListAsync();
+        public async Task<List<PasswordRecord>> GetAllAsync() =>
+            await context.Passwords.OrderByDescending(x => x.CreatedAt).ToListAsync();
 
         public async Task<PasswordRecord> CreateAsync(PasswordRecord entity)
         {
