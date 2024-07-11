@@ -1,6 +1,6 @@
 ﻿namespace PasswordManagerTestTask.ViewModels
 {
-    public class PasswordRecordViewModel
+    public class PasswordRecordDto
     {
         public string SiteOrMailName { get; set; }
 
