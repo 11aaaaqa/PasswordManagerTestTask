@@ -4,7 +4,7 @@
         headers: { "Accept": "application/json" }
     });
 
-    if (response.Ok) {
+    if (response.ok === true) {
         const records = response.json();
         let rows = document.querySelector("tbody");
         records.forEach(record => {

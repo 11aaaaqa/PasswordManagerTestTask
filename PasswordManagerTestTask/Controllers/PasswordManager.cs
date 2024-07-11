@@ -1,29 +1,39 @@
 ﻿using ApplicationCore.Interfaces;
 using ApplicationCore.Models;
+using Infrastructure.Database;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using PasswordManagerTestTask.ViewModels;
 
 namespace PasswordManagerTestTask.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class PasswordManager(IRepository<PasswordRecord> repository) : ControllerBase
+    public class PasswordManager(IRepository<PasswordRecord> repository, ApplicationDbContext context) : ControllerBase
     {
         [HttpGet]
         public async Task<ActionResult<List<PasswordRecord>>> GetAllPasswordsAsync()
         {
-            return new OkObjectResult(await repository.GetAllAsync());
+            return Ok(await repository.GetAllAsync());
         }
 
         [HttpPost]
-        public async Task<ActionResult<PasswordRecord>> CreatePasswordRecordAsync(PasswordViewModel model)
+        public async Task<ActionResult<PasswordRecord>> CreatePasswordRecordAsync(PasswordRecordViewModel model)
         {
-            var record = new PasswordRecord
-                { Id = Guid.NewGuid(), Password = model.Password, CreatedAt = DateOnly.FromDateTime(DateTime.Now) }; // todo: SiteOrMailName
-            await repository.CreateAsync(record);
-            return new OkObjectResult(record);
+            var record = await context.Passwords.SingleOrDefaultAsync(x => x.SiteOrMailName == model.SiteOrMailName);
+            if (record != null) 
+                return Conflict("Запись об этом сайте/почте уже существует");
+
+            var addedRecord = await repository.CreateAsync(new PasswordRecord
+            {
+                Id = Guid.NewGuid(),
+                CreatedAt = DateOnly.FromDateTime(DateTime.Now),
+                Password = model.Password,
+                SiteOrMailName = model.SiteOrMailName
+            });
+            return Ok(addedRecord);
         }
     }
 }
