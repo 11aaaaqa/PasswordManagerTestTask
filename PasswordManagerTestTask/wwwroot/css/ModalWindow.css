@@ -12,7 +12,7 @@
     margin: 15px auto;
     padding: 20px; /*Размер блока контента */
     border: 1px solid gray; /*Рамка*/
-    width: 80%; /*Ширина блока*/
+    width: 30%; /*Ширина блока*/
 }
 
 .close {
