@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="css/ModalWindow.css"/>
+    <meta charset="utf-8"/>
+    <title>Пароли</title>
+</head>
+<body>
+    <table>
+        <thead><tr><th>Наименование</th><th>Пароль</th><th>Дата записи</th></tr></thead>
+        <tbody></tbody>
+    </table>
+    <script src="~/js/FetchRecords.js"></script>
+
+    <button id="addRecord">Создать новую запись</button>
+    <div id="modalWindow" class="modal">
+        <div class="modal-content">
+            <span class="close" id="close">&times;</span>
+            <h4>Создать новую запись</h4>
+            <form name="newRecordForm">
+                <div>
+                    <label for="SiteOrMailName">Наименование</label><br />
+                    <input id="siteOrMailNameInput"/>
+                </div>
+                <div>
+                    <label for="Password">Пароль</label><br />
+                    <input id="passwordInput" type="password" />
+                </div>
+                <div>
+                    <input type="radio" name="radioBtn" checked id="siteInput">
+                    <label for="site">сайт</label>
+
+                    <input type="radio" name="radioBtn" id="mailInput">
+                    <label for="mail">почта</label>
+                </div>
+                <input type="submit" value="создать" />
+            </form>
+        </div>
+    </div>
+<script src="js/ModalWindow.js"></script>
+</body>
+</html>
