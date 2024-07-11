@@ -11,4 +11,6 @@ builder.Services.AddTransient<IRepository<PasswordRecord>, PasswordRecordReposit
 
 var app = builder.Build();
 
+app.UseStaticFiles();
+
 app.Run();
