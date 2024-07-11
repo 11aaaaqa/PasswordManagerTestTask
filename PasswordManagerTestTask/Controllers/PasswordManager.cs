@@ -20,7 +20,7 @@ namespace PasswordManagerTestTask.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<PasswordRecord>> CreatePasswordRecordAsync(PasswordRecordViewModel model)
+        public async Task<ActionResult<PasswordRecord>> CreatePasswordRecordAsync(PasswordRecordDto model)
         {
             var record = await context.Passwords.SingleOrDefaultAsync(x => x.SiteOrMailName == model.SiteOrMailName);
             if (record != null) 
