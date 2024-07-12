@@ -3,9 +3,9 @@
         method: "GET",
         headers: { "Accept": "application/json" }
     });
-
+    
     if (response.ok === true) {
-        const records = response.json();
+        const records = await response.json();
         let rows = document.querySelector("tbody");
         records.forEach(record => {
             rows.append(addRow(record));
@@ -17,18 +17,18 @@ function addRow(record) {
     const tr = document.createElement("tr");
 
     const nameTd = document.createElement("td");
-    nameTd.append(record.SiteOrMailName);
+    nameTd.append(record.siteOrMailName);
     tr.append(nameTd);
 
     const passwordTd = document.createElement("td");
-    passwordTd.append(record.Password);
+    passwordTd.append(record.password);
     tr.append(passwordTd);
 
     const createdAtTd = document.createElement("td");
-    createdAtTd.append(record.CreatedAt);
+    createdAtTd.append(record.createdAt);
     tr.append(createdAtTd);
 
-    //return tr;
+    return tr;
 }
 
 GetPasswords();
