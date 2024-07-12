@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="css/ModalWindow.css"/>
+    <meta charset="utf-8"/>
+    <title>Пароли</title>
+</head>
+<body>
+<table>
+    <thead><tr><th>Наименование</th><th>Пароль</th><th>Дата записи</th><th></th></tr></thead>
+    <tbody>
+    </tbody>
+</table>
+<script src="~/js/FetchRecords.js"></script>
+
+<button id="addRecord">Создать новую запись</button>
+<div id="modalWindow" class="modal">
+    <div class="modal-content">
+        <span class="close" id="close">&times;</span>
+        <h4>Создать новую запись</h4>
+        <form id="newRecordForm">
+            <div>
+                <label for="siteOrMailNameInput">Наименование</label><br/>
+                <input id="siteOrMailNameInput" name="siteOrMailNameInput" required/>
+            </div>
+            <div>
+                <label for="passwordInput">Пароль</label><br/>
+                <input id="passwordInput" name="passwordInput" type="password" required minlength="8"/>
+            </div>
+            <div>
+                <input type="radio" name="radioBtn" checked id="siteInput" value="site">
+                <label for="siteInput">сайт</label>
+
+                <input type="radio" name="radioBtn" id="mailInput" value="mail">
+                <label for="mailInput">почта</label>
+            </div>
+            <button type="submit" id="createRecordSubmit">создать</button>
+        </form>
+    </div>
+</div>
+<script src="js/ModalWindow.js"></script>
+<script src="js/FormValidation.js"></script>
+</body>
+</html>
