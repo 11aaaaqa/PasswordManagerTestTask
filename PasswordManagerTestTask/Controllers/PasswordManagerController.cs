@@ -11,16 +11,18 @@ namespace PasswordManagerTestTask.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class PasswordManagerController(IRepository<PasswordRecord> repository, ApplicationDbContext context) : ControllerBase
+    public class PasswordManagerController : ControllerBase
     {
+        private readonly IRepository<PasswordRecord> repository;
+        private readonly ApplicationDbContext context;
+        public PasswordManagerController(IRepository<PasswordRecord> repository, ApplicationDbContext context)
+        {
+            this.context = context;
+            this.repository = repository;
+        }
         [HttpGet]
         public async Task<ActionResult<List<PasswordRecord>>> GetAllPasswordsAsync()
         {
-            await repository.CreateAsync(new PasswordRecord
-            {
-                CreatedAt = DateOnly.FromDateTime(DateTime.Now), Id = Guid.NewGuid(), Password = "12345678",
-                SiteOrMailName = "test"
-            }); //Тестовые данные по умолчанию
             return Ok(await repository.GetAllAsync());
         }
 
