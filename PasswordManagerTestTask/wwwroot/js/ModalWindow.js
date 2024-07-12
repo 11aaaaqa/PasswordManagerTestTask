@@ -1,8 +1,8 @@
-﻿let btn = document.getElementById("addRecord");
+﻿const btn = document.getElementById("addRecord");
 
-let modal = document.getElementById("modalWindow");
+const modal = document.getElementById("modalWindow");
 
-let close = document.getElementById("close");
+const close = document.getElementById("close");
 
 btn.onclick = function() {
     modal.style.display = "block";
