@@ -32,8 +32,11 @@ async function Create(name, password, recordType) {
         clearTbody();
         GetPasswords();
     }
-    if (response.statusCode === 409) {
+    if (response.status === 409) {
         alert("Запись об этом сайте/почте уже существует");
+    }
+    if (response.status === 400) {
+        alert("Такой почты не существует");
     }
 }
 
