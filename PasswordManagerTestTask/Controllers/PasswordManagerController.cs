@@ -1,4 +1,5 @@
-﻿using ApplicationCore.Interfaces;
+﻿using System.ComponentModel.DataAnnotations;
+using ApplicationCore.Interfaces;
 using ApplicationCore.Models;
 using Infrastructure.Database;
 using Microsoft.AspNetCore.Http;
@@ -29,6 +30,12 @@ namespace PasswordManagerTestTask.Controllers
         [HttpPost]
         public async Task<ActionResult<PasswordRecord>> CreatePasswordRecordAsync(PasswordRecordDto model)
         {
+            if (model.RecordType == "email")
+            {
+                var email = new EmailAddressAttribute();
+                if (email.IsValid(model.SiteOrMailName) == false)
+                    return BadRequest("Такой почты не существует");
+            }
             var record = await context.Passwords.SingleOrDefaultAsync(x => x.SiteOrMailName == model.SiteOrMailName);
             if (record != null) 
                 return Conflict("Запись об этом сайте/почте уже существует");
