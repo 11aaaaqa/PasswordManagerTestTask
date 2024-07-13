@@ -1,20 +1,19 @@
-﻿
-table {
-    width: 100%;
+﻿table {
+    width: 60%;
     border-collapse: collapse;
 }
 
-th,td {
+th, td {
     border: 1px solid black;
     padding: 8px;
     text-align: left;
 }
 
 th {
-    background-color: #a9a9a9
+    background-color: #f2f2f2;
 }
 
 .td-password {
     color: transparent;
-    text-shadow: 0 0 6px rgba(0, 0, 0, 0.6);
+    text-shadow: 0 0 6px rgba(0,0,0,0.6);
 }
