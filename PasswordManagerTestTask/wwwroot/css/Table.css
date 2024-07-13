@@ -17,3 +17,9 @@ th {
     color: transparent;
     text-shadow: 0 0 6px rgba(0,0,0,0.6);
 }
+
+
+.hidden-password:hover,
+.hidden-password:focus {
+    cursor: pointer;
+}
