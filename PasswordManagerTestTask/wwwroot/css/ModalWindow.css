@@ -10,9 +10,9 @@
 .modal-content {
     background-color: white;
     margin: 15px auto;
-    padding: 20px; /*Размер блока контента */
-    border: 1px solid gray; /*Рамка*/
-    width: 30%; /*Ширина блока*/
+    padding: 20px;
+    border: 1px solid gray; 
+    width: 30%; 
 }
 
 .close {
