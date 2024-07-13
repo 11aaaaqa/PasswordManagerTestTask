@@ -4,6 +4,8 @@
     <meta charset="utf-8" />
     <link rel="stylesheet" href="css/ModalWindow.css" />
     <link rel="stylesheet" href="css/Table.css"/>
+    <link rel="stylesheet" href="css/Button.css" />
+    <link rel="stylesheet" href="css/Input.css"/>
     <title>Пароли</title>
 </head>
 <body>
@@ -21,19 +23,17 @@
 </table>
 <script src="js/FetchRecords.js?v=1.0"></script>
 
-<button id="addRecord">Создать новую запись</button>
+<button id="addRecord" class="blckwht-button">Создать новую запись</button>
 <div id="modalWindow" class="modal">
     <div class="modal-content">
         <span class="close" id="close">&times;</span>
         <h4>Создать новую запись</h4>
         <form id="newRecordForm">
             <div>
-                <label for="siteOrMailNameInput">Наименование</label><br />
-                <input id="siteOrMailNameInput" name="siteOrMailNameInput" required />
+                <input class="blckwht-input" id="siteOrMailNameInput" name="siteOrMailNameInput" required placeholder="Наименование"/>
             </div>
             <div>
-                <label for="passwordInput">Пароль</label><br />
-                <input id="passwordInput" name="passwordInput" type="password" required minlength="8" />
+                <input class="blckwht-input" id="passwordInput" name="passwordInput" type="password" required minlength="8" placeholder="Пароль"/>
             </div>
             <div>
                 <input type="radio" name="radioBtn" checked id="siteInput" value="site">
