@@ -6,8 +6,8 @@
     <title>Пароли</title>
 </head>
 <body>
-
-<table>
+<input type="text" id="searchInput" placeholder="Найти запись" onkeyup="searchRecord()"/>
+<table id="recordsTable">
     <thead><tr><th>Наименование</th><th>Пароль</th><th>Дата записи</th><th></th></tr></thead>
     <tbody>
     </tbody>
@@ -41,5 +41,6 @@
 </div>
 <script src="js/ModalWindow.js"></script>
 <script src="js/CreateRecord.js"></script>
+ <script src="js/RecordsFilter.js"></script>
 </body>
 </html>
