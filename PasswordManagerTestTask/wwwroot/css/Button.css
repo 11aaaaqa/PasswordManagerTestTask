@@ -1,0 +1,17 @@
+﻿.blckwht-button {
+    background-color: black;
+    border: none;
+    color: white;
+    padding: 6px 18px;
+    text-align: center;
+    font-size: 16px;
+    margin: 15px 0px;
+    cursor: pointer;
+    border-radius: 10px;
+    transition-duration: 0.3s;
+}
+
+.blckwht-button:hover {
+    background-color: #f2f2f2;
+    color: black;
+}
