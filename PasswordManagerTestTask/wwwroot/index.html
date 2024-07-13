@@ -9,11 +9,17 @@
 <body>
 <input type="text" id="searchInput" placeholder="Найти запись" onkeyup="searchRecord()"/>
 <table id="recordsTable">
-    <thead><tr><th>Наименование</th><th>Пароль</th><th>Дата записи</th><th></th></tr></thead>
+    <thead>
+    <tr>
+        <th>Наименование</th>
+        <th>Пароль</th>
+        <th>Дата записи</th>
+    </tr>
+    </thead>
     <tbody>
     </tbody>
 </table>
-<script src="js/FetchRecords.js"></script>
+<script src="js/FetchRecords.js?v=1.0"></script>
 
 <button id="addRecord">Создать новую запись</button>
 <div id="modalWindow" class="modal">
@@ -42,6 +48,6 @@
 </div>
 <script src="js/ModalWindow.js"></script>
 <script src="js/CreateRecord.js"></script>
- <script src="js/RecordsFilter.js"></script>
+<script src="js/RecordsFilter.js"></script>
 </body>
 </html>
