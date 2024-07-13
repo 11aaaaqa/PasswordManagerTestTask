@@ -21,21 +21,5 @@ namespace Infrastructure.Implementations
             await context.SaveChangesAsync();
             return entity;
         }
-
-        public async Task<PasswordRecord> UpdateAsync(PasswordRecord entity)
-        {
-            context.Passwords.Update(entity);
-            await context.SaveChangesAsync();
-            return entity;
-        }
-
-        public async Task DeleteAsync(Guid id)
-        {
-            var record = await context.Passwords.SingleOrDefaultAsync(x => x.Id == id);
-            if (record == null)
-                throw new ArgumentException("Пользователя с таким идентификатором не существует");
-            context.Passwords.Remove(record);
-            await context.SaveChangesAsync();
-        }
     }
 }
